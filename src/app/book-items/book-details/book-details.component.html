@@ -1,0 +1,105 @@
+<div *ngIf="!edit">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-10">
+        <form (ngSubmit)="onSubmit()" #f="ngForm" 
+        class="form-horizontal" >
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="name">Book Name:</label>
+            <div class="col-sm-10">
+              <input [(ngModel)]="bookDetails.name" 
+              type="text" 
+              class="form-control" 
+              id="name" 
+              name="name"
+              ngModel>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="author">Author:</label>
+            <div class="col-sm-10">          
+              <input [(ngModel)]="bookDetails.author" 
+              type="text" 
+              class="form-control" 
+              id="author" 
+              name="author"
+              ngModel>
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="dop">Date of publication:</label>
+              <div class="col-sm-10">          
+                <input [(ngModel)]="bookDetails.date_of_publication" 
+                type="text" 
+                class="form-control" 
+                id="dop" 
+                name="dop"
+                ngModel>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="nop">No of Pages:</label>
+                <div class="col-sm-10">          
+                  <input [(ngModel)]="bookDetails.number_of_pages" 
+                  type="text" 
+                  class="form-control" 
+                  id="nop" 
+                  name="nop"
+                  ngModel>
+                </div>
+              </div>
+              <!-- <button *ngIf="edit" (click)="onEdit()"
+              class="btn btn-primary">Edit</button> -->
+              <div class="row">
+              <div class="col-lg-6 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-10">
+                <button type="submit"
+                class="btn btn-success">Save</button>
+                <button (click)="onCancel()" 
+                class="btn btn-danger">Cancel</button>
+                </div>
+                </div>
+        </form>      
+    </div>
+  </div>
+</div>
+    
+
+
+
+<div *ngIf="edit">
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Book Name</th>
+                    <th>Author</th>
+                    <th>Date Of Publication</th>
+                    <th>No of Pages</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ bookDetails.name }}</td>
+                    <td>{{ bookDetails.author }}</td>
+                    <td>{{ bookDetails.date_of_publication }}</td>
+                    <td>{{ bookDetails.number_of_pages }}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+          <button *ngIf="edit" (click)="onEdit()"
+            class="btn btn-primary">Edit</button>
+              <!-- <button *ngIf="!edit" (click)="onSave()"
+            class="btn btn-success">Save</button> -->
+            <button (click)="onCancel()"
+            class="btn btn-danger">Cancel</button>
+        </div>
+      </div>
+      
+</div>
+
+
+  
